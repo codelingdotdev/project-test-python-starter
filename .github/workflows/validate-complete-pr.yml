@@ -3,7 +3,7 @@ name: Validate Student PR
 on:
   pull_request:
     branches:
-      - lesson-complete
+      - complete
 
 jobs:
   validate-pr:
