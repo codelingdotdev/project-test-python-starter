@@ -29,8 +29,8 @@ jobs:
       - name: Fetch the test file from API
         id: fetch_test_file
         run: |
-          curl -o test.py https://1ec1-102-132-173-220.ngrok-free.app/api/github/get-lesson-test-file/?repo=project-test-python&lesson_branch=lesson-01
-          # Fetches the test file for the relevant lesson, storing it in the `test.py` file
+          curl -v -o test.py "https://1ec1-102-132-173-220.ngrok-free.app/api/github/get-lesson-test-file/?repo=project-test-python&lesson_branch=lesson-01"
+          cat test.py
 
       # Step 5: Run the tests
       - name: Run tests
