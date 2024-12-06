@@ -1,0 +1,14 @@
+name: Validate Student PR
+
+on:
+  pull_request:
+    branches:
+      - lesson-complete
+
+jobs:
+  validate-pr:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Echo PR SHA
+        run: echo ${{ github.event.pull_request.head.sha }}
