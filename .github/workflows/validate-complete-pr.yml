@@ -11,4 +11,4 @@ jobs:
 
     steps:
       - name: Echo PR SHA
-        run: echo "this has changed in the forked repo"
+        run: echo "this is going to work"
