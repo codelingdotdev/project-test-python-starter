@@ -1,0 +1,48 @@
+name: Validate Lesson
+
+on:
+  push:
+    branches:
+      - staging
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    
+    steps:
+      # Step 1: Checkout the student's code
+      - name: Checkout student code
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Python environment
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.12
+
+      # Step 3: Install dependencies (if any)
+    #   - name: Install dependencies
+    #     run: |
+    #       pip install -r requirements.txt  # Install any dependencies if specified
+
+      # Step 4: Fetch the test file from your private repo using the API
+      - name: Fetch the test file from API
+        id: fetch_test_file
+        run: |
+          curl -o test.py https://1ec1-102-132-173-220.ngrok-free.app/api/github/get-lesson-test-file/?repo=project-test-python&lesson_branch=lesson-01
+          # Fetches the test file for the relevant lesson, storing it in the `test.py` file
+
+      # Step 5: Run the tests
+      - name: Run tests
+        run: |
+          python test.py  # Runs the dynamically created test file
+
+      # Step 6: Notify the backend if the test passes
+    #   - name: Notify Backend on Success
+    #     run: |
+    #       curl -X POST -d "lesson_id=${{ github.event.pull_request.head.ref }}&status=passed" https://your-backend-api.com/complete-lesson
+    #     if: success()  # Only sends the request if the test passes
+
+    #   # Step 7: Clean up (optional)
+    #   - name: Clean up test file
+    #     run: rm test.py  # Optionally remove the test file after the run
