@@ -11,4 +11,4 @@ jobs:
 
     steps:
       - name: Echo PR SHA
-        run: echo ${{ github.event.pull_request.head.sha }}
+        run: echo "this has changed in the forked repo"
