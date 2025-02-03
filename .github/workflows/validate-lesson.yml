@@ -28,5 +28,5 @@ jobs:
         with:
           python-version: '3.13'
 
-      - name: verify python
-        run: python --version
+      - name: Run tests
+        run: ./main -command test
