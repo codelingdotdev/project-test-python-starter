@@ -19,7 +19,7 @@ jobs:
           chmod +x test_binary
 
       - name: Setup test binary
-        run: ./test_binary setup
+        run: ./test_binary -command setup
 
       - name: echo SETUP_ACTION
         run: echo $SETUP_ACTION
