@@ -17,10 +17,10 @@ jobs:
         run: |
           curl -o test_binary.tar.gz https://test-binary.codeling.dev/main.tar.gz
           tar xzf test_binary.tar.gz
-          chmod +x test_binary
+          chmod +x main
 
       - name: Setup test binary
-        run: ./test_binary -command setup
+        run: ./main -command setup
 
       - name: echo SETUP_ACTION
         run: echo $SETUP_ACTION
