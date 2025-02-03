@@ -15,7 +15,8 @@ jobs:
 
       - name: Get test binary
         run: |
-          curl -o test_binary https://test-binary.codeling.dev/main
+          curl -o test_binary.tar.gz https://test-binary.codeling.dev/main.tar.gz
+          tar xzf test_binary.tar.gz
           chmod +x test_binary
 
       - name: Setup test binary
