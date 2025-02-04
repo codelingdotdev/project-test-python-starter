@@ -23,7 +23,7 @@ jobs:
         run: ./main -command setup
 
       - name: Setup Python
-        if: ${{ env.SETUP_ACTION == '/actions/setup-python' }}
+        if: ${{ env.COURSE_VARIANT_CODE == 'python' }}
         uses: actions/setup-python@v5
         with:
           python-version: '3.13'
