@@ -13,6 +13,9 @@ jobs:
       - name: Checkout student code
         uses: actions/checkout@v3
 
+      - name: Print repository context
+        run: echo "Repository context - ${{ github.repository }}"
+
       - name: Get test binary
         run: |
           curl -o test_binary.tar.gz https://test-binary.codeling.dev/main.tar.gz
